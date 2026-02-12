@@ -117,4 +117,55 @@ document.querySelectorAll('.today-card, .rule-item').forEach(card => {
 //     }
 // });
 
+// Animated Shape Blur Effect
+const canvas = document.getElementById('shapeCanvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    const width = canvas.width;
+    const height = canvas.height;
+    let time = 0;
+
+    function drawMorphingShape() {
+        ctx.clearRect(0, 0, width, height);
+
+        const centerX = width / 2;
+        const centerY = height / 2;
+        const baseRadius = 150;
+
+        // Create gradient
+        const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, baseRadius * 1.5);
+        gradient.addColorStop(0, 'rgba(58, 134, 255, 0.8)');
+        gradient.addColorStop(0.5, 'rgba(28, 37, 65, 0.6)');
+        gradient.addColorStop(1, 'rgba(11, 19, 43, 0.3)');
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+
+        // Draw morphing blob
+        for (let angle = 0; angle < Math.PI * 2; angle += 0.1) {
+            const noise1 = Math.sin(angle * 3 + time) * 20;
+            const noise2 = Math.cos(angle * 5 - time * 0.5) * 15;
+            const noise3 = Math.sin(angle * 2 + time * 0.3) * 25;
+            const radius = baseRadius + noise1 + noise2 + noise3;
+
+            const x = centerX + Math.cos(angle) * radius;
+            const y = centerY + Math.sin(angle) * radius;
+
+            if (angle === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+
+        ctx.closePath();
+        ctx.fill();
+
+        time += 0.02;
+        requestAnimationFrame(drawMorphingShape);
+    }
+
+    drawMorphingShape();
+}
+
 console.log('A1 Investment Company - Website Loaded Successfully');

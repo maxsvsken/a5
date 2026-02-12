@@ -225,6 +225,58 @@ ul {
 .hero-content {
   width: 100%;
   padding-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 500px;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-text-block {
+  max-width: 700px;
+}
+
+.hero-shape-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shapeCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(20px);
+  opacity: 0.8;
+}
+
+.shape-text {
+  position: relative;
+  z-index: 10;
+  font-family: var(--header-font);
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 40px rgba(58, 134, 255, 0.6);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
 
 .hero-subtitle {
