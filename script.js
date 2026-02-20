@@ -14,6 +14,7 @@ if (burger) {
     burger.addEventListener('click', () => {
         burger.classList.toggle('active');
         navLinks.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
     });
 }
 
@@ -22,6 +23,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         burger.classList.remove('active');
         navLinks.classList.remove('active');
+        document.body.classList.remove('no-scroll');
     });
 });
 
@@ -66,7 +68,7 @@ function animateCounter(element, target, duration = 2000) {
 
 // Intersection Observer for Counter Animation
 const observerOptions = {
-    threshold: 0.5,
+    threshold: 0.2,
     rootMargin: '0px'
 };
 
@@ -86,15 +88,24 @@ document.querySelectorAll('.stat-number').forEach(stat => {
 });
 
 // Parallax Effect for Hero Background
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroSection = document.querySelector('.hero');
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
 
-    if (heroSection && scrolled < window.innerHeight) {
-        const heroBg = document.querySelector('.hero-bg');
-        if (heroBg) {
-            heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
+            // Hero Parallax
+            if (heroSection && scrolled < window.innerHeight) {
+                const heroBg = document.querySelector('.hero-bg');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.4}px)`;
+                }
+            }
+
+            ticking = false;
+        });
+        ticking = true;
     }
 });
 
