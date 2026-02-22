@@ -127,3 +127,53 @@ window.addEventListener('scroll', () => {
 });
 
 console.log('A1 Investment Company - Website Loaded Successfully');
+
+// --- Custom Pipe Cursor ---
+const pipeCursor = document.createElement('div');
+pipeCursor.id = 'custom-pipe-cursor';
+pipeCursor.innerHTML = `
+<svg width="40" height="40" viewBox="0 0 100 100" style="position: absolute; left: -5px; top: -5px; transform: rotate(-5deg);">
+    <path d="M 10,10 C 20,15 30,25 40,45 C 45,55 55,60 65,60 C 75,60 85,55 90,40 L 95,20 L 70,20 L 70,40 C 70,45 65,50 60,50 C 50,50 45,40 35,25 L 15,10 Z" fill="#ffffff" stroke="#a0a0a0" stroke-width="2"/>
+    <rect x="70" y="15" width="25" height="10" fill="#222222" />
+    <path d="M 75,25 C 80,35 90,35 95,25" fill="#222222"/>
+</svg>`;
+document.body.appendChild(pipeCursor);
+
+let cursorX = -100, cursorY = -100;
+let mouseX = -100, mouseY = -100;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.4;
+    cursorY += (mouseY - cursorY) * 0.4;
+    pipeCursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+    requestAnimationFrame(animateCursor);
+}
+requestAnimationFrame(animateCursor);
+
+// Smoke generation
+setInterval(() => {
+    if (mouseX === -100) return; // don't spawn until mouse moves
+    const smoke = document.createElement('div');
+    smoke.className = 'smoke-particle';
+    // Position at the bowl (left + ~28, top + ~5)
+    smoke.style.left = (cursorX + 28) + 'px';
+    smoke.style.top = (cursorY + 5) + 'px';
+
+    smoke.style.setProperty('--tx', (Math.random() * 40 - 20) + 'px');
+    smoke.style.setProperty('--ty', (Math.random() * -60 - 40) + 'px');
+
+    const size = Math.random() * 15 + 15;
+    smoke.style.width = size + 'px';
+    smoke.style.height = size + 'px';
+
+    document.body.appendChild(smoke);
+
+    setTimeout(() => {
+        smoke.remove();
+    }, 2000);
+}, 100);
