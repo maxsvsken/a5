@@ -132,10 +132,35 @@ console.log('A1 Investment Company - Website Loaded Successfully');
 const pipeCursor = document.createElement('div');
 pipeCursor.id = 'custom-pipe-cursor';
 pipeCursor.innerHTML = `
-<svg width="40" height="40" viewBox="0 0 100 100" style="position: absolute; left: -5px; top: -5px; transform: rotate(-5deg);">
-    <path d="M 10,10 C 20,15 30,25 40,45 C 45,55 55,60 65,60 C 75,60 85,55 90,40 L 95,20 L 70,20 L 70,40 C 70,45 65,50 60,50 C 50,50 45,40 35,25 L 15,10 Z" fill="#ffffff" stroke="#a0a0a0" stroke-width="2"/>
-    <rect x="70" y="15" width="25" height="10" fill="#222222" />
-    <path d="M 75,25 C 80,35 90,35 95,25" fill="#222222"/>
+<svg width="60" height="60" viewBox="0 0 120 120" style="position: absolute; left: -10px; top: -10px; filter: drop-shadow(3px 5px 4px rgba(0,0,0,0.5));">
+    <defs>
+        <linearGradient id="wood" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#8a8a8a"/>
+            <stop offset="20%" stop-color="#555555"/>
+            <stop offset="50%" stop-color="#2a2a2a"/>
+            <stop offset="100%" stop-color="#0a0a0a"/>
+        </linearGradient>
+        <linearGradient id="stem" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#555555"/>
+            <stop offset="20%" stop-color="#222222"/>
+            <stop offset="100%" stop-color="#050505"/>
+        </linearGradient>
+        <linearGradient id="band" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="40%" stop-color="#aaaaaa"/>
+            <stop offset="100%" stop-color="#444444"/>
+        </linearGradient>
+    </defs>
+    <g transform="translate(15, 15) rotate(15)">
+        <path d="M 10,40 C 5,50 10,65 25,70 C 40,75 50,65 55,55 L 85,45 L 80,30 L 45,35 C 40,20 25,20 15,25 Z" fill="url(#wood)" />
+        <path d="M 10,40 C 20,45 35,45 45,35" fill="none" stroke="#222" stroke-width="1.5" />
+        <path d="M 25,70 C 35,62 45,55 55,55" fill="none" stroke="#222" stroke-width="1.5" />
+        <ellipse cx="28" cy="27" rx="14" ry="7" fill="#1a1a1a" stroke="#444" stroke-width="1.5" />
+        <ellipse cx="28" cy="27" rx="10" ry="4" fill="#000000" />
+        <path d="M 85,45 C 100,40 115,25 115,15 C 110,18 95,25 80,30 Z" fill="url(#stem)" />
+        <polygon points="80,30 85,45 82,46 77,31" fill="url(#band)" />
+        <circle cx="95" cy="30" r="1.5" fill="#ffffff" />
+    </g>
 </svg>`;
 document.body.appendChild(pipeCursor);
 
@@ -160,12 +185,13 @@ setInterval(() => {
     if (mouseX === -100) return; // don't spawn until mouse moves
     const smoke = document.createElement('div');
     smoke.className = 'smoke-particle';
-    // Position at the bowl (left + ~28, top + ~5)
-    smoke.style.left = (cursorX + 28) + 'px';
-    smoke.style.top = (cursorY + 5) + 'px';
 
-    smoke.style.setProperty('--tx', (Math.random() * 40 - 20) + 'px');
-    smoke.style.setProperty('--ty', (Math.random() * -60 - 40) + 'px');
+    // Position at the bowl (roughly +15px right and +18px down from cursor)
+    smoke.style.left = (cursorX + 15) + 'px';
+    smoke.style.top = (cursorY + 18) + 'px';
+
+    smoke.style.setProperty('--tx', (Math.random() * 60 - 30) + 'px');
+    smoke.style.setProperty('--ty', (Math.random() * -80 - 40) + 'px');
 
     const size = Math.random() * 15 + 15;
     smoke.style.width = size + 'px';
@@ -175,5 +201,5 @@ setInterval(() => {
 
     setTimeout(() => {
         smoke.remove();
-    }, 2000);
-}, 100);
+    }, 2500);
+}, 80);

@@ -28,8 +28,8 @@
   left: 0;
   pointer-events: none;
   z-index: 999999;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   transform: translate(-100px, -100px);
 }
 
@@ -37,9 +37,10 @@
   position: fixed;
   pointer-events: none;
   z-index: 999998;
-  background: radial-gradient(circle, rgba(200, 200, 200, 0.4) 0%, rgba(150, 150, 150, 0) 70%);
+  background: radial-gradient(circle, rgba(130, 130, 130, 0.6) 0%, rgba(160, 160, 160, 0) 70%);
   border-radius: 50%;
-  animation: smoke-rise 2s ease-out forwards;
+  filter: blur(4px);
+  animation: smoke-rise 2.5s ease-out forwards;
 }
 
 @keyframes smoke-rise {
@@ -48,9 +49,13 @@
     transform: translate(-50%, -50%) scale(0.5);
   }
 
+  50% {
+    opacity: 0.5;
+  }
+
   100% {
     opacity: 0;
-    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(3);
+    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(4);
   }
 }
 
