@@ -128,7 +128,20 @@ window.addEventListener('scroll', () => {
 
 console.log('A1 Investment Company - Website Loaded Successfully');
 
-// --- Custom Pipe Cursor ---
+// --- Custom Pipe Cursor & Smoke Filter ---
+const smokeFilter = document.createElement('div');
+smokeFilter.innerHTML = `
+<svg width="0" height="0" style="position:absolute;z-index:-1;">
+  <defs>
+    <filter id="smoke-fluid">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.015 0.02" numOctaves="4" result="noise" />
+      <feDisplacementMap in="blur" in2="noise" scale="35" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>`;
+document.body.appendChild(smokeFilter);
+
 const pipeCursor = document.createElement('div');
 pipeCursor.id = 'custom-pipe-cursor';
 pipeCursor.innerHTML = `
@@ -187,19 +200,24 @@ setInterval(() => {
     smoke.className = 'smoke-particle';
 
     // Position at the bowl (roughly +15px right and +18px down from cursor)
-    smoke.style.left = (cursorX + 15) + 'px';
-    smoke.style.top = (cursorY + 18) + 'px';
+    smoke.style.left = (cursorX + 22) + 'px';
+    smoke.style.top = (cursorY + 15) + 'px';
 
-    smoke.style.setProperty('--tx', (Math.random() * 60 - 30) + 'px');
-    smoke.style.setProperty('--ty', (Math.random() * -80 - 40) + 'px');
+    // More complex, higher rise, snaking path simulating smoke
+    smoke.style.setProperty('--tx', (Math.random() * 80 - 40) + 'px');
+    smoke.style.setProperty('--ty', (Math.random() * -150 - 80) + 'px');
+    smoke.style.setProperty('--rot', (Math.random() * 180 - 90) + 'deg');
+    smoke.style.setProperty('--scale', (Math.random() * 3 + 3));
 
-    const size = Math.random() * 15 + 15;
-    smoke.style.width = size + 'px';
-    smoke.style.height = size + 'px';
+    // Random elongated shapes for wispy look before filter
+    const width = Math.random() * 15 + 10;
+    const height = Math.random() * 30 + 15;
+    smoke.style.width = width + 'px';
+    smoke.style.height = height + 'px';
 
     document.body.appendChild(smoke);
 
     setTimeout(() => {
         smoke.remove();
-    }, 2500);
-}, 80);
+    }, 4000);
+}, 100);
