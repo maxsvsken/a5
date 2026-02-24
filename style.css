@@ -9,9 +9,9 @@
   /* Swapped: will be black text/backgrounds where white was used */
   --text-main: #000000;
   --text-dim: rgba(0, 0, 0, 0.7);
-  --border-thin: rgba(0, 0, 0, 0.15);
-  --site-font: 'Inter', sans-serif;
-  --header-font: 'Michroma', sans-serif;
+  --border-thin: rgba(255, 255, 255, 0.2);
+  --site-font: "Inter", sans-serif;
+  --header-font: "Michroma", sans-serif;
   /* Futuristic geometric font */
 }
 
@@ -19,45 +19,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
-}
-
-#custom-pipe-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 999999;
-  width: 60px;
-  height: 60px;
-  transform: translate(-100px, -100px);
-}
-
-.smoke-particle {
-  position: fixed;
-  pointer-events: none;
-  z-index: 999998;
-  background: radial-gradient(ellipse at center, rgba(160, 150, 130, 0.6) 0%, rgba(140, 130, 110, 0) 60%);
-  border-radius: 50%;
-  filter: url(#smoke-fluid);
-  mix-blend-mode: multiply;
-  animation: smoke-rise 4s ease-out forwards;
-}
-
-@keyframes smoke-rise {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.2) rotate(0deg);
-  }
-
-  15% {
-    opacity: 0.8;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(var(--scale)) rotate(var(--rot));
-  }
 }
 
 html {
@@ -239,7 +200,7 @@ ul {
 }
 
 .nav-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -319,7 +280,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('the-son-of-a-man2.png');
+  background-image: url("the-son-of-a-man2.png");
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -332,7 +293,10 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 100%);
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 1) 100%);
   z-index: 2;
   /* Changed to positive and made lighter */
 }
@@ -435,8 +399,18 @@ ul {
     background-color: var(--primary-dark);
     color: var(--white);
     transform: scale(1.05);
-    clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%,
-        100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%);
+    clip-path: polygon(0% 15%,
+        15% 15%,
+        15% 0%,
+        85% 0%,
+        85% 15%,
+        100% 15%,
+        100% 85%,
+        85% 85%,
+        85% 100%,
+        15% 100%,
+        15% 85%,
+        0% 85%);
   }
 }
 
@@ -447,7 +421,27 @@ ul {
   border-top: 1px solid var(--border-thin);
   position: relative;
   z-index: 2;
-  /* Content above lines */
+  /* overflow: hidden; */
+}
+
+
+/* Canvas moved to inline style in html, but leaving for safety */
+#legend-parallax-canvas {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  filter: grayscale(100%);
+  opacity: 0.4;
+}
+
+.legend-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .legend-header {
@@ -459,15 +453,19 @@ ul {
   padding-bottom: 80px;
 }
 
+.legend-section .section-title {
+  color: var(--primary-dark);
+}
+
 .legend-description {
   font-size: 1.25rem;
   line-height: 1.6;
-  color: var(--text-dim);
+  color: var(--primary-dark);
   font-weight: 300;
 }
 
 .legend-description strong {
-  color: var(--white);
+  color: var(--primary-dark);
   display: block;
   margin-bottom: 35px;
   font-size: 2.2rem;
@@ -487,7 +485,7 @@ ul {
   border-left: 1px solid var(--border-thin);
   padding: 40px;
   position: relative;
-  background: var(--bg-deep);
+  background: transparent;
 }
 
 @media (hover: hover) {
@@ -500,7 +498,7 @@ ul {
   font-family: var(--header-font);
   font-size: 4rem;
   font-weight: 400;
-  color: var(--white);
+  color: #ffffff;
   line-height: 1;
   margin-bottom: 25px;
   letter-spacing: -2px;
@@ -511,31 +509,21 @@ ul {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--text-main);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.4;
 }
 
 /* Today Section */
 .today-section {
   padding: 150px 0;
-  background-image: url('the-son-of-a-man3.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: transparent;
   position: relative;
-  overflow: hidden;
   border-top: 1px solid var(--border-thin);
 }
 
+/* removing before overlay since background is video now */
 .today-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 1;
+  display: none;
 }
 
 .today-section .container {
@@ -544,7 +532,7 @@ ul {
 }
 
 .today-section .section-title {
-  color: #000000;
+  color: #ffffff;
 }
 
 .today-grid {
@@ -614,7 +602,7 @@ ul {
   height: 450px;
   width: 100%;
   margin-top: -80px;
-  background-image: url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2144&q=80');
+  background-image: url("https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&auto=format&fit=crop&w=2144&q=80");
   background-size: cover;
   background-position: center bottom;
   position: relative;
@@ -637,6 +625,7 @@ ul {
   border-top: 1px solid var(--border-thin);
 }
 
+
 .code-header {
   display: flex;
   justify-content: space-between;
@@ -646,8 +635,13 @@ ul {
   padding-bottom: 30px;
 }
 
+.code-header .section-title {
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
 .code-subtitle {
-  color: var(--white);
+  color: #ffffff;
   font-weight: 400;
   font-size: 0.8rem;
   padding-bottom: 10px;
@@ -680,7 +674,7 @@ ul {
 }
 
 .rule-number {
-  color: var(--white);
+  color: #ffffff;
   font-weight: 400;
   font-size: 0.8rem;
   opacity: 0.5;
@@ -690,7 +684,7 @@ ul {
 .rule-title {
   font-weight: 400;
   font-size: 1.4rem;
-  color: var(--white);
+  color: #ffffff;
   padding-right: 40px;
   text-transform: none;
   letter-spacing: 0;
@@ -698,7 +692,7 @@ ul {
 }
 
 .rule-desc {
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1.1rem;
   line-height: 1.5;
   font-weight: 300;
@@ -706,7 +700,7 @@ ul {
 
 /* Footer */
 .footer {
-  background-image: url('the-son-of-a-man5v2.png');
+  background-image: url("the-son-of-a-man5v2.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -718,7 +712,7 @@ ul {
 }
 
 .footer::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -781,7 +775,7 @@ ul {
 }
 
 .footer-links a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -3px;
   left: 0;

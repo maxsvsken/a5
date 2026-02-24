@@ -1,26 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>А1 - Инвестиционная компания специального назначения</title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Michroma&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" />
 
     <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css?v=20">
+    <link rel="stylesheet" href="style.css?v=20" />
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
@@ -48,152 +47,189 @@
 
         <div class="container hero-content">
             <div class="hero-text-block">
-                <p class="hero-subtitle" data-aos="fade-right" data-aos-delay="200">ОФИЦИАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ</p>
+                <p class="hero-subtitle" data-aos="fade-right" data-aos-delay="200">
+                    ОФИЦИАЛЬНОЕ ПОЗИЦИОНИРОВАНИЕ
+                </p>
                 <div class="hero-main-image" data-aos="zoom-out" data-aos-delay="400">
-                    <img src="the-son-of-a-man2.png" alt="René Magritte - The Son of Man">
+                    <img src="the-son-of-a-man2.png" alt="René Magritte - The Son of Man" />
                 </div>
                 <h1 class="hero-title" id="heroTitle">
-                    <div class="title-line" data-aos="fade-up" data-aos-delay="600">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</div>
-                    <div class="title-line" data-aos="fade-up" data-aos-delay="800">СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ</div>
+                    <div class="title-line" data-aos="fade-up" data-aos-delay="600">
+                        ИНВЕСТИЦИОННАЯ КОМПАНИЯ
+                    </div>
+                    <div class="title-line" data-aos="fade-up" data-aos-delay="800">
+                        СПЕЦИАЛЬНОГО НАЗНАЧЕНИЯ
+                    </div>
                 </h1>
                 <a href="#about" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="1000">УЗНАТЬ БОЛЬШЕ</a>
             </div>
         </div>
     </header>
 
-    <!-- Legend Section -->
-    <section id="about" class="legend-section">
-        <div class="container">
-            <div class="legend-header" data-aos="fade-up">
-                <h2 class="section-title">ЛЕГЕНДА</h2>
-                <div class="legend-description">
-                    <p><strong>A1 — инвестиционная компания специального назначения.</strong><br>
-                        Более 30 лет помогает реализовать сложные сделки.<br>
-                        Как инвестор и партнер собственного капитала заходит в такие ситуации и активы, где другие не
-                        справляются, доводя их до надежного результата. Команда А1 — высококвалифицированные архитекторы
-                        устойчивых сделок.</p>
-                </div>
-            </div>
+    <!-- Parallax Wrapper -->
+    <div id="parallax-wrapper" style="position: relative; background-color: #000; z-index: 1;">
+        <canvas id="legend-parallax-canvas"
+            style="position: sticky; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0; pointer-events: none; filter: grayscale(100%); opacity: 0.4;"></canvas>
 
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="fade-right" data-aos-delay="100">
-                    <div class="stat-number" data-target="50">0%</div>
-                    <div class="stat-label">ПРЕДПРИНИМАТЕЛЬСКОЙ<br>ЭНЕРГИИ</div>
-                </div>
-                <div class="stat-item" data-aos="fade-right" data-aos-delay="200">
-                    <div class="stat-number" data-target="25">0%</div>
-                    <div class="stat-label">ЮРИДИЧЕСКОЙ<br>СТРОГОСТИ</div>
-                </div>
-                <div class="stat-item" data-aos="fade-right" data-aos-delay="300">
-                    <div class="stat-number" data-target="25">0%</div>
-                    <div class="stat-label">СИЛЫ<br>И ВЛИЯТЕЛЬНОСТИ</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div style="position: relative; z-index: 1;">
+            <!-- Legend Section -->
+            <section id="about" class="legend-section" style="background-color: transparent;">
+                <div class="container">
+                    <div class="legend-header" data-aos="fade-up">
+                        <h2 class="section-title">ЛЕГЕНДА</h2>
+                        <div class="legend-description">
+                            <p>
+                                <strong>A1 — инвестиционная компания специального назначения.</strong><br />
+                                Более 30 лет помогает реализовать сложные сделки.<br />
+                                Как инвестор и партнер собственного капитала заходит в такие
+                                ситуации и активы, где другие не справляются, доводя их до
+                                надежного результата. Команда А1 — высококвалифицированные
+                                архитекторы устойчивых сделок.
+                            </p>
+                        </div>
+                    </div>
 
-    <!-- A1 Today Section -->
-    <section id="today" class="today-section">
-        <div class="container">
-            <h2 class="section-title mb-large" data-aos="fade-up">А1 СЕГОДНЯ</h2>
-            <div class="today-grid">
-                <div class="today-card card-blue" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card-content">
-                        <span class="card-subtitle">Профиль</span>
-                        <h3>Для кого мы работаем</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item" data-aos="fade-right" data-aos-delay="100">
+                            <div class="stat-number" data-target="50">0%</div>
+                            <div class="stat-label">ПРЕДПРИНИМАТЕЛЬСКОЙ<br />ЭНЕРГИИ</div>
+                        </div>
+                        <div class="stat-item" data-aos="fade-right" data-aos-delay="200">
+                            <div class="stat-number" data-target="25">0%</div>
+                            <div class="stat-label">ЮРИДИЧЕСКОЙ<br />СТРОГОСТИ</div>
+                        </div>
+                        <div class="stat-item" data-aos="fade-right" data-aos-delay="300">
+                            <div class="stat-number" data-target="25">0%</div>
+                            <div class="stat-label">СИЛЫ<br />И ВЛИЯТЕЛЬНОСТИ</div>
+                        </div>
                     </div>
                 </div>
-                <div class="today-card card-light-blue" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card-content">
-                        <span class="card-subtitle">Ситуации</span>
-                        <h3>В каких ситуациях к нам обращаются</h3>
+            </section>
+
+            <!-- A1 Today Section -->
+            <section id="today" class="today-section">
+                <div class="container">
+                    <h2 class="section-title mb-large" data-aos="fade-up">А1 СЕГОДНЯ</h2>
+                    <div class="today-grid">
+                        <div class="today-card card-blue" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="card-content">
+                                <span class="card-subtitle">Профиль</span>
+                                <h3>Для кого мы работаем</h3>
+                            </div>
+                        </div>
+                        <div class="today-card card-light-blue" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="card-content">
+                                <span class="card-subtitle">Ситуации</span>
+                                <h3>В каких ситуациях к нам обращаются</h3>
+                            </div>
+                        </div>
+                        <div class="today-card card-grey" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="card-content">
+                                <span class="card-subtitle">Методы</span>
+                                <h3>Как мы работаем</h3>
+                            </div>
+                        </div>
+                        <div class="today-card card-green" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="card-content">
+                                <span class="card-subtitle">Принципы</span>
+                                <h3>Поддерживающие тезисы</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="today-card card-grey" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="card-content">
-                        <span class="card-subtitle">Методы</span>
-                        <h3>Как мы работаем</h3>
+            </section>
+
+            <!-- Code Section -->
+            <section id="code" class="code-section">
+                <div class="container">
+                    <div class="code-header" data-aos="fade-up">
+                        <h2 class="section-title">КОДЕКС А1</h2>
+                        <h3 class="code-subtitle">10 публичных правил</h3>
+                    </div>
+
+                    <div class="rules-list">
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="50">
+                            <div class="rule-number">01.</div>
+                            <div class="rule-title">Закон и прозрачность.</div>
+                            <div class="rule-desc">
+                                Мы всегда действуем в правовом поле, и с документальным
+                                подтверждением.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="rule-number">02.</div>
+                            <div class="rule-title">Уважение к правам сторон.</div>
+                            <div class="rule-desc">
+                                Мы ценим ясность в отношениях с партнерами и оппонентами.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="150">
+                            <div class="rule-number">03.</div>
+                            <div class="rule-title">Конфиденциальность.</div>
+                            <div class="rule-desc">
+                                Защищаем информацию о наших публичных действиях — только по
+                                согласованию сторон.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="200">
+                            <div class="rule-number">04.</div>
+                            <div class="rule-title">Интерес против плохих практик.</div>
+                            <div class="rule-desc">
+                                Избегаем недобросовестных приемов и работаем на повышение общей
+                                культуры рынка.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="250">
+                            <div class="rule-number">05.</div>
+                            <div class="rule-title">Честный статус владения.</div>
+                            <div class="rule-desc">
+                                Понимаем бенефициаров, структуру собственности и управленческую
+                                модель компании.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="300">
+                            <div class="rule-number">06.</div>
+                            <div class="rule-title">Ответственность.</div>
+                            <div class="rule-desc">
+                                Действуем быстро, но взвешенно, отвечая за результат.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="350">
+                            <div class="rule-number">07.</div>
+                            <div class="rule-title">Инвестиции со смыслом.</div>
+                            <div class="rule-desc">
+                                Ищем не только прибыль, но и позитивные изменения в компании.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="400">
+                            <div class="rule-number">08.</div>
+                            <div class="rule-title">Переговоры прежде всего.</div>
+                            <div class="rule-desc">
+                                Приоритет — переговорное решение, медиация и взаимопонимание, а не
+                                эскалация конфликта.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="450">
+                            <div class="rule-number">09.</div>
+                            <div class="rule-title">Совпадение интересов.</div>
+                            <div class="rule-desc">
+                                Конструируем ситуацию так, чтобы выгодно было всем участникам.
+                            </div>
+                        </div>
+                        <div class="rule-item" data-aos="fade-left" data-aos-delay="500">
+                            <div class="rule-number">10.</div>
+                            <div class="rule-title">Публичная ответственность.</div>
+                            <div class="rule-desc">
+                                Готовы объяснять наши принципы любому стейкхолдеру и найти
+                                альтернативу, где мы не правы.
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="today-card card-green" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card-content">
-                        <span class="card-subtitle">Принципы</span>
-                        <h3>Поддерживающие тезисы</h3>
-                    </div>
-                </div>
-            </div>
+            </section>
+        </div> <!-- End of z-index 1 wrapper -->
+    </div> <!-- End of Parallax Wrapper -->
 
-
-        </div>
-    </section>
-
-    <!-- Code Section -->
-    <section id="code" class="code-section">
-        <div class="container">
-            <div class="code-header" data-aos="fade-up">
-                <h2 class="section-title">КОДЕКС А1</h2>
-                <h3 class="code-subtitle">10 публичных правил</h3>
-            </div>
-
-            <div class="rules-list">
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="50">
-                    <div class="rule-number">01.</div>
-                    <div class="rule-title">Закон и прозрачность.</div>
-                    <div class="rule-desc">Мы всегда действуем в правовом поле, и с документальным подтверждением.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="100">
-                    <div class="rule-number">02.</div>
-                    <div class="rule-title">Уважение к правам сторон.</div>
-                    <div class="rule-desc">Мы ценим ясность в отношениях с партнерами и оппонентами.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="150">
-                    <div class="rule-number">03.</div>
-                    <div class="rule-title">Конфиденциальность.</div>
-                    <div class="rule-desc">Защищаем информацию о наших публичных действиях — только по согласованию
-                        сторон.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="200">
-                    <div class="rule-number">04.</div>
-                    <div class="rule-title">Интерес против плохих практик.</div>
-                    <div class="rule-desc">Избегаем недобросовестных приемов и работаем на повышение общей культуры
-                        рынка.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="250">
-                    <div class="rule-number">05.</div>
-                    <div class="rule-title">Честный статус владения.</div>
-                    <div class="rule-desc">Понимаем бенефициаров, структуру собственности и управленческую модель
-                        компании.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="300">
-                    <div class="rule-number">06.</div>
-                    <div class="rule-title">Ответственность.</div>
-                    <div class="rule-desc">Действуем быстро, но взвешенно, отвечая за результат.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="350">
-                    <div class="rule-number">07.</div>
-                    <div class="rule-title">Инвестиции со смыслом.</div>
-                    <div class="rule-desc">Ищем не только прибыль, но и позитивные изменения в компании.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="400">
-                    <div class="rule-number">08.</div>
-                    <div class="rule-title">Переговоры прежде всего.</div>
-                    <div class="rule-desc">Приоритет — переговорное решение, медиация и взаимопонимание, а не эскалация
-                        конфликта.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="450">
-                    <div class="rule-number">09.</div>
-                    <div class="rule-title">Совпадение интересов.</div>
-                    <div class="rule-desc">Конструируем ситуацию так, чтобы выгодно было всем участникам.</div>
-                </div>
-                <div class="rule-item" data-aos="fade-left" data-aos-delay="500">
-                    <div class="rule-number">10.</div>
-                    <div class="rule-title">Публичная ответственность.</div>
-                    <div class="rule-desc">Готовы объяснять наши принципы любому стейкхолдеру и найти альтернативу, где
-                        мы не правы.</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer id="contact" class="footer">
