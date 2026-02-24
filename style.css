@@ -546,23 +546,25 @@ ul {
 
 .today-card {
   padding: 60px 40px;
-  background: var(--bg-deep);
+  background: transparent;
   border: 1px solid var(--border-thin);
   border-radius: 0;
   transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .today-card:hover {
-  border-color: var(--white);
+  border-color: #ffffff;
   transform: translateY(-10px);
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .card-blue,
 .card-light-blue,
 .card-grey,
 .card-green {
-  background: var(--bg-deep);
+  background: transparent;
   border-color: var(--border-thin);
 }
 
